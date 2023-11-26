@@ -18,21 +18,28 @@ public class UserCommand {
             .orElse("You need to login first!");
     }
 
-    @ShellMethod(key = "user login", value = "User login")
+    @ShellMethod(key = "sign in privileged", value = "Admin login")
+    public String adminLogin(String username, String password) {
+        return userService.login(username, password)
+                .map(userDto -> "signed in with privileged account " + userDto)
+                .orElse("Login failed due to incorrect credentials");
+    }
+
+    @ShellMethod(key = "sign in", value = "User login")
     public String login(String username, String password) {
         return userService.login(username, password)
             .map(userDto -> userDto + " is successfully logged in!")
             .orElse("No such username or password!");
     }
 
-    @ShellMethod(key = "user print", value = "Get user information")
+    @ShellMethod(key = "describe account", value = "Get user information")
     public String print() {
         return userService.describe()
-            .map(Record::toString)
-            .orElse("You need to login first!");
+            .map(userDto -> "Signed in with account " + userDto)
+            .orElse("You are not signed in");
     }
 
-    @ShellMethod(key = "user register", value = "User registration")
+    @ShellMethod(key = "sign up", value = "User registration")
     public String registerUser(String userName, String password) {
         try {
             userService.registerUser(userName, password);

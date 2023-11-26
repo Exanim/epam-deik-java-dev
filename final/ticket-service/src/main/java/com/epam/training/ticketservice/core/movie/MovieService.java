@@ -11,4 +11,6 @@ public interface MovieService {
     Optional<MovieDto> getMovieByName(String name);
 
     void createMovie(MovieDto movieDto);
+
+    void deleteMovie(String name);
 }

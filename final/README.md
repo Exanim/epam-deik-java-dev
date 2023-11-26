@@ -211,23 +211,23 @@ Room <terem neve> with <székek száma> seats, <széksorok száma> rows and <sz�
 * A következő parancs lehetőséget biztosít egy már létező film létező teremben történő
 vetítésének létrehozására egy adott időpontban.
 ```
-create screening <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+create booking <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
 ```
 Például, ha a Pedersoli terem és a Spirited Away film léteznek, akkor egy vetítés a 2021-03-14 16:00 
 időpontban létrehozható a következőképpen:
 ```
-create screening "Spirited Away" Pedersoli "2021-03-14 16:00"
+create booking "Spirited Away" Pedersoli "2021-03-14 16:00"
 ```
 * Nem hozható létre a vetítés akkor, ha:
     * A vetítés időtartama bele esik egy másik, azonos teremben történő másik vetítés időtartamába. 
     A kimenet ebben az esetben:
     ```
-    There is an overlapping screening
+    There is an overlapping booking
     ``` 
     * A vetítés időtartama bele esik egy másik, azonos teremben történő vetítés utáni 10 perces szünetbe (amely lehetőséget
     biztosít például a terem előkészítésére a következő vetítésre). A kimenet ebben az esetben:
     ```
-    This would start in the break period after another screening in this room
+    This would start in the break period after another booking in this room
     ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -237,7 +237,7 @@ adminisztrátor felhasználó számára elérhető.
 
 * A következő parancs lehetőséget biztosít egy már létező vetítés törlésére:
 ```
-delete screening <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
+delete booking <film címe> <terem neve> <vetítés kezdetének dátuma és ideje, YYYY-MM-DD hh:mm formátumban>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.
@@ -448,7 +448,7 @@ adminisztrátor felhasználó számára elérhető.
 * A következő parancs lehetővé teszi egy létező árkomponens egy létező vetítéshez történő csatolását.
 Miután megtörtént, a vetítés ára tartalmazza az árkomponenst.
 ```
-attach price component to screening <árkomponens neve> <film címe> <terem neve> <vetítés kezdetének dátuma YYYY-MM-DD hh:mm formátumban>
+attach price component to booking <árkomponens neve> <film címe> <terem neve> <vetítés kezdetének dátuma YYYY-MM-DD hh:mm formátumban>
 ```
 * A parancs adminisztrációs parancs, így csak bejelentkezett 
 adminisztrátor felhasználó számára elérhető.

@@ -34,6 +34,15 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.save(movie);
     }
 
+    public void deleteMovie(String movieName) {
+        Optional<Movie> movieOptional = movieRepository.findByName(movieName);
+
+        if (movieOptional.isPresent()) {
+            Movie movie = movieOptional.get();
+            movieRepository.delete(movie);
+        }
+    }
+
     private MovieDto createEntityFromDto(Movie movie) {
         return MovieDto.builder()
                 .withName(movie.getName())

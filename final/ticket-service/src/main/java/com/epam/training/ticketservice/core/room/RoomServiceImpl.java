@@ -1,6 +1,5 @@
 package com.epam.training.ticketservice.core.room;
 
-import com.epam.training.ticketservice.core.finance.money.Money;
 import com.epam.training.ticketservice.core.room.model.RoomDto;
 import com.epam.training.ticketservice.core.room.persistence.Room;
 import com.epam.training.ticketservice.core.room.persistence.RoomRepository;
